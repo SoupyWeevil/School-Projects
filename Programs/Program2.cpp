@@ -16,6 +16,7 @@
 using namespace std;
 
 
+
 int displayMenuChoice(){ 		//allows player to choose which game function to play
 	int choice;
 	
@@ -102,6 +103,29 @@ int luckyDice(string player){ 	//Do-While loop for user choice to continue rolli
 
 //****************************************************************************************//
 int main(){ 					//Main gameplay loop -- calls each of the dice functions
-	luckyDice("Grace");
+	int choice;
+	cout << "\n┏━━━━━━━━━━✦❘༻༺❘✦━━━━━━━━━━━┓"
+	 	 << "\n    Welcome to Dice Casino     "
+		 << "\n ----------------------------- "
+		 << "\n   Here you can choose one     "
+		 << "\n  of three unique dice games   "
+		 << "\n ----------------------------- "
+		 << "\n┗━━━━━━━━━━✦❘༻༺❘✦━━━━━━━━━━━┛\n";
+
+	do{
+		choice = displayMenuChoice(); 
+		
+		switch(choice){
+			case 1:  // ROLL CALL
+				cout << "\nchoice one works\n";
+				break;
+
+			case 2:  // OVER UNDER
+				break;
+
+			case 3:  // LUCKY DICE
+				break;
+		}
+	}while(!(choice == 4));
 	return 0;
 }
