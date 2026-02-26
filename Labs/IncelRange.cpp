@@ -25,7 +25,7 @@ int main(){
 	int playerHealth, enemyHealth, playerDamage, enemyDamage, menuChoice, rageMultiplier, defense, randChance;
 	char yesNo;
 	
-	srand(time); 
+	srand(time(0)); 
 	
 	//Ascii Art
 	//Story Setup
@@ -55,5 +55,5 @@ int main(){
 	
 	//Ouside of Do While -- give final stats and complete storyline
 	
-	return;
+	return 0;
 }
