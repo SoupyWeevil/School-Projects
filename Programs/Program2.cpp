@@ -16,7 +16,7 @@
 using namespace std;
 
 
-int displayMenuChoice(){ //Switch statment menu choices -- allows player to choose which game function to play
+int displayMenuChoice(){ 		//allows player to choose which game function to play
 	int choice;
 	
 	cout << "\n◤━━━━━━━━━━━━━━━━━━━━━━━━━◥\n"
@@ -29,7 +29,8 @@ int displayMenuChoice(){ //Switch statment menu choices -- allows player to choo
 		 << "Please Select Your Choice --> ";
 	cin >> choice;
 	
-	while(cin.fail() || choice > 4 || choice < 1){
+	//Validation loop for choice (using cin.fail() from module 6 slides failbit)
+	while(cin.fail() || choice > 4 || choice < 1){ 
 		if(cin.fail()){
 			cout << "\nThats not a Number! Please select a valid option --> ";
 		}else{
@@ -42,22 +43,65 @@ int displayMenuChoice(){ //Switch statment menu choices -- allows player to choo
 	cin.ignore(100, '\n');
 	return choice;
 }
-
-int rollDice(){ 		//Simulated rolling two dice -- called every time total of the two dice needs to be determined
+//Simulated rolling two dice -- called every time total of the two dice needs to be determined
+int rollDice(){ 				
 	int dice1, dice2, total;
-	
-	return total;
+	srand(time(0)); 			// Gives a new generated seed each time rand() is called
+	dice1 = rand() % 6 + 1;  
+	dice2 = rand() % 6 + 1;
+	total = dice1 + dice2;
+
+	return total; 				// Gives the total to be used when function is called
 }
 
-int luckyDice(string player){ //If statement branches for player risk -- allows player to keep rolling until double
-	int total;
-	
-	return total;
+int luckyDice(string player){ 	//Do-While loop for user choice to continue rolling
+	srand(time(0)); 
+	int dice1, dice2, accumulatedTotal, turn = 1;	
+	char yesNo;					//Allows user to choose if they continue rolling
+	do{							//Continues rolling BY USERS CHOICe
+		int diceTotal;			// Stores temp dice total value to be added to accumulator
+		string border(20, '-');
+
+		
+		cout << border << endl
+			 << "Turn " << turn << "... \n";
+		turn++; 				//Ensures turn number is updated each loop
+		dice1 = rand() % 6 + 1;
+		dice2 = rand() % 6 + 1;
+		
+		if(dice1 == dice2){		//If branches based on if dice are equal or not
+			cout << "Oops! You rolled double " << dice1 << "'s!\n"
+				 << "You lost all your points for this round!\n";
+			accumulatedTotal = 0; //Automatically sets accumulated total to 0 -- ends round
+		}else{
+			cout << "You Rolled a " << dice1 << " and a " << dice2 << "!\n";
+			diceTotal = dice1 + dice2;
+			accumulatedTotal += diceTotal; //Adds running total to accumulator for total overall points
+		}
+
+		cout << "\nYour new total is " << accumulatedTotal << "!\n";
+
+		if(accumulatedTotal > 0){  			// Allows user to keep plying IF they havent rolled a double
+			cout << "Would you like to test your luck and ROLL AGAIN?\n"
+				 << "[Y/N] --> ";
+			cin >> yesNo;
+			yesNo = toupper(yesNo);
+
+			while(cin.fail() || yesNo != 'Y' && yesNo != 'N'){	//User Validation loop
+				cin.clear();
+				cin.ignore(100, '\n');
+				cout << "Please enter a valid choice! --> ";
+				cin >> yesNo;
+				yesNo = toupper(yesNo);
+			}
+		}
+	}while(yesNo == 'Y' && accumulatedTotal > 0); //Continues as long as player wants to keep playing OR total is above 0
+
+	return accumulatedTotal;
 }
 
 //****************************************************************************************//
-int main(){ 			//Main gameplay loop -- calls each of the dice functions
-	
-
+int main(){ 					//Main gameplay loop -- calls each of the dice functions
+	luckyDice("Grace");
 	return 0;
 }
