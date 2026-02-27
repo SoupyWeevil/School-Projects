@@ -26,11 +26,31 @@ int main(){
 	char yesNo;
 	
 	srand(time(0)); 
+	//Ascii Art -- Once again using this reference https://stackoverflow.com/questions/37765925/ascii-art-in-c
+	cout << R"(
+●・○・●・○・●・○・●・○・●・○・●・○・●・○・●・○・●・○・●・○・●・○
+      _____                 _                            
+     /  __ \               | |                           
+     | /  \/ ___  ___ _ __ | | __ _ _   _                
+     | |    / _ \/ __| '_ \| |/ _` | | | |               
+     | \__/\ (_) \__ \ |_) | | (_| | |_| |               
+      \____/\___/|___/ .__/|_|\__,_|\__, |               
+                     | |             __/ |               
+                     |_|            |___/                
+ _____             _                                     
+/  __ \           | |                                    
+| /  \/ ___  _ __ | |_ _ __ _____   _____ _ __ ___ _   _ 
+| |    / _ \| '_ \| __| '__/ _ \ \ / / _ \ '__/ __| | | |
+| \__/\ (_) | | | | |_| | | (_) \ V /  __/ |  \__ \ |_| |
+ \____/\___/|_| |_|\__|_|  \___/ \_/ \___|_|  |___/\__, |
+                                                    __/ |
+                                                   |___/ 
+●・○・●・○・●・○・●・○・●・○・●・○・●・○・●・○・●・○・●・○・●・○
+	)";
+
+	//Story Setup ... Madlibs that determine stats and name
 	
-	//Ascii Art
-	//Story Setup
-	
-	//player info input and variable assignments
+	//Player info and stats
 	
 	//story continues -- enemy appears
 	
@@ -38,22 +58,55 @@ int main(){
 	//Enemy stats
 	
 	//DO WHILE GAME LOOP
-	//nested do while menu loop
+	do{
+			cout << "\n╔───────────────────────╗"
+				 << "\n|   WHAT WILL YOU DO?   |"
+				 << "\n|-----------------------|"
+				 << "\n| 1.) Attack            |"
+				 << "\n| 2.) Defend            |"
+				 << "\n| 3.) Rummage Bag       |" // This one offers a randomizer for a boost
+				 << "\n| 4.) Give Up           |" // Automatically sets player health to 0
+				 << "\n╚───────────────────────╝\n"
+				 << "\n Enter Choice Here --> ";
+			cin >> menuChoice;
+
 	//user validation
-	
-	/* CHOICES:
-		1.) Attack 
-		2.) Defend
-		3.) Rummage Bag  -- This one offers a randomizer for a boost
-		4.) Give up      -- Automatically sets player health to 0 */
+		while(cin.fail() || menuChoice < 1 || menuChoice > 4){
+			if(cin.fail()){
+				cout << "\nPlease enter a NUMBER! --> ";
+			}else{
+				cout << "\nPlease enter a value in range! --> ";
+			}
+			cin.clear();
+			cin.ignore(100, '\n');
+
+			cin >> menuChoice;
+		}
 		
-	//user Validation loop for choices
+	//switch case for choices
+		switch(menuChoice){
+			case 1:
+
+				break;
+			case 2:
+
+				break;
+			case 3:
+
+				break;
+		}
 	
 	//Display results of choice
 	
-	// KEEP LOOPING WHILE(playerHealth > 0 || enemyHealth > 0)!!!
+	// KEEP LOOPING UNTIL DEATH OR QUIT
+	}while(playerHealth > 0 || enemyHealth > 0);
+
+	if(playerHealth <= 0){ //Death Sequence for player
+
+	}else if(enemyHealth <= 0){ //Death Sequence for Enemy
+
+	}
 	
-	//Ouside of Do While -- give final stats and complete storyline
 	
 	return 0;
 }
