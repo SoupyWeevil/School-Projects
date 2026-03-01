@@ -2,7 +2,7 @@
 * Name       : Grace Brown *
 * Last Edited: 26 Feb 2026 *
 * File Name  : Lab5.cpp    *
-* Purpose    :  		   *
+* Purpose    : Battle sim  *
 ***************************/
 
 #include <cstdlib>
@@ -22,8 +22,24 @@ int main(){
 		 */
 		 
 	string name, cosplayChar, catchPhrase, border(50, '-'), prop;
-	int playerHealth, enemyHealth, playerDamage, enemyDamage, menuChoice, rageMultiplier, defense, randChance;
+	int playerHealth, enemyHealth, playerDamage, enemyDamage, menuChoice, rageMultiplier, defense, turn, randnum;
 	char yesNo;
+
+	randnum = rand() % 5 + 1;
+
+	//Determines your signature catchphrase. These are all very good.
+	if(randnum == 1){ 
+		catchPhrase = "Booper Dooper!";
+	}else if(randnum == 2){
+		catchPhrase = "Little Booty Pooty Tooty!";
+	}else if(randnum == 3){
+		catchPhrase = "You just got Banned!";
+	}else if (randnum == 4){
+		catchPhrase = "Was that the bite of 87?!";	
+	}else{
+		catchPhrase = "You just got #owned!";
+	}
+	
 	
 	srand(time(0)); 
 	//Ascii Art -- Once again using this reference https://stackoverflow.com/questions/37765925/ascii-art-in-c
@@ -248,7 +264,7 @@ int main(){
 	playerHealth = playerDamage * 2; //Balances enemy health and damage (potential for 20 or 40)
 
 
-	 cout << "\n" << border << endl
+	cout << "\n" << border << endl // Stats for both characters
 		 << "\n┌────── ⋆⋅☆⋅⋆ ──────┐"
 		 << "\n|    -- STATS --    |"
 		 << "\n| ★  • • • • • •  ★ |"
@@ -260,23 +276,22 @@ int main(){
          << "\n|     HEALTH: " << enemyHealth << "    |"
          << "\n|     ATTACK: " << enemyDamage << "    |"
          << "\n└────── ⋆⋅☆⋅⋆ ──────┘\n";
-         
-
 	
-	//DO WHILE GAME LOOP
+	//DO WHILE GAME LOOP -- Players will continue until one of them die
 	do{
-			cout << "\n╔───────────────────────╗"
-				 << "\n|   WHAT WILL YOU DO?   |"
-				 << "\n|-----------------------|"
-				 << "\n| 1.) Attack            |"
-				 << "\n| 2.) Defend            |"
-				 << "\n| 3.) Rummage Bag       |" // This one offers a randomizer for a boost
-				 << "\n| 4.) Give Up           |" // Automatically sets player health to 0
-				 << "\n╚───────────────────────╝\n"
-				 << "\n Enter Choice Here --> ";
-			cin >> menuChoice;
+		
+		cout << "\n╔───────────────────────╗"
+			 << "\n|   WHAT WILL YOU DO?   |"
+			 << "\n|-----------------------|"
+			 << "\n| 1.) Attack            |"
+			 << "\n| 2.) Defend            |"
+			 << "\n| 3.) Rummage Bag       |" // This one offers a randomizer for a boost
+			 << "\n| 4.) Give Up           |" // Automatically sets player health to 0
+			 << "\n╚───────────────────────╝\n"
+			 << "\n Enter Choice Here --> ";
+		cin >> menuChoice;
 
-	//user validation
+		//user validation
 		while(cin.fail() || menuChoice < 1 || menuChoice > 4){
 			if(cin.fail()){
 				cout << "\nPlease enter a NUMBER! --> ";
