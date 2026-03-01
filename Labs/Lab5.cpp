@@ -196,23 +196,72 @@ int main(){
 	cout << "[PRESS ENTER TO CONTINUE STORY]";
 	cin.ignore(100, '\n');
 
+	//////////////////////////////// BEGINS STORY BLOCK ////////////////////////////////////
 	cout << " " << border << endl
 		 << "\nAs you were walking along the convention floor..."
 		 << "\nYou see Them."
 		 << "\nYour doppleganger. "
 		 << "\nAnother " << cosplayChar << ". But their cosplay is significantly better than yours."
 		 << "\nYou cant let them mog you...\n"
-		 << border << endl
+		 << "\n" << border << endl
 		 << "\n[PRESS ENTER TO CONTINUE]";
 	cin.ignore(100, '\n');
 
+	cout << "\n" << border << endl
+		 << "\nYou approach the other " << cosplayChar << ".\n"
+		 << "\nEvil " << cosplayChar << ": Hey! Nice cosplay!"
+		 << "\nEvil " << cosplayChar << ": Did you buy it off of Temu?!\n"
+		 << "\n[Evil " << cosplayChar << " laughs and high fives their friends.]\n"
+		 << "\n[PRESS ENTER TO CONTINUE]\n";
+	cin.ignore(100, '\n');
 
-	//Player info and stats
-	
-	//story continues -- enemy appears
-	
-	//RANDOMIZER FOR ENEMY STATS
-	//Enemy stats
+	cout << "\n" << border << endl
+		 << "\nYour face turns red as your clench your fist in rage...\n"
+		 << "\n" << name << ": N-No!! I made it with my mom..."
+		 << "\n" << name << ": It's made with love and dedication. You wouldn't get it...\n"
+		 << "\n[Evil " << cosplayChar << " steps closer, nearly nose to nose with you]\n"
+		 << "\nEvil " << cosplayChar << ": What's that supposed to mean, CHUD?\n"
+		 << "\n[Evil " << cosplayChar << " flashes their homemade prop and hits you in the knees]\n"
+		 << "\n[PRESS ENTER TO CONTINUE]\n";
+	cin.ignore(100, '\n');
+
+	cout << "\n" << border << endl
+		 << "\nYou fall to the ground and groan. Your counterpart is mocking you."
+		 << "\nSlowly, you get up and stand up straight. They are still laughing.\n"
+		 << "\n[PRESS ENTER TO CONTINUE]\n";
+	cin.ignore(100, '\n');
+
+	cout << "\n" << border << endl
+		 << "\n" << cosplayChar << ": You know what? I won't stand for this...\n"
+		 << cosplayChar << ": I challenge you.. to a DUEL\n"
+		 << "\n[Evil " << cosplayChar << " and their friends stop laughing]\n"
+		 << "\nEvil " << cosplayChar << ": Okay then. show me what you got."
+		 << "\nEvil " << cosplayChar << ": But if I win, you have to strip your cosplay for the rest of the convention."
+		 << "\nEvil " << cosplayChar << ": So don't get too excited.\n"
+		 << "\n[PRESS ENTER TO CONTINUE]";
+	cin.ignore(100, '\n');
+	////////////////////////////////////// STORY BLOCK END ///////////////////////////////////////
+
+	enemyDamage = rand() % 11 + 10; //Randomizes enemy stats from 10 - 20
+	enemyHealth = enemyDamage * 2; //Balances enemy damage and health
+
+	playerHealth = playerDamage * 2; //Balances enemy health and damage (potential for 20 or 40)
+
+
+	 cout << "\n" << border << endl
+		 << "\n┌────── ⋆⋅☆⋅⋆ ──────┐"
+		 << "\n|    -- STATS --    |"
+		 << "\n| ★  • • • • • •  ★ |"
+		 << "\n| You --            |"
+         << "\n|     HEALTH: " << playerHealth << "    |"
+         << "\n|     ATTACK: " << playerDamage << "    |"
+         << "\n| ★  • • • • • •  ★ |"
+         << "\n| Enemy --          |"
+         << "\n|     HEALTH: " << enemyHealth << "    |"
+         << "\n|     ATTACK: " << enemyDamage << "    |"
+         << "\n└────── ⋆⋅☆⋅⋆ ──────┘\n";
+         
+
 	
 	//DO WHILE GAME LOOP
 	do{
