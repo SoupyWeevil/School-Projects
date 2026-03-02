@@ -20,14 +20,16 @@ int main(){
 		 You find another person ALSO wearing a cosplay of the SAME CHARACTER
 		 You have to fight -- NERD STYLE -- to determine who TRULY deserves to embody the character
 		 */
+
 		string name, cosplayChar, catchPhrase, border(50, '-'), prop;
-		int playerHealth, enemyHealth, playerDamage, enemyDamage, menuChoice, rageMultiplier, defense, turn = 0, randnum, enemyDamageDisplay;
+		int playerHealth, enemyHealth, playerDamage, enemyDamage, menuChoice, rageMultiplierPlayer, rageMultiplierEnemy, defense, turn = 0, randnum, enemyDamageDisplay;
 		char yesNo;
-		bool propBool;
+		bool propBool, rageBoolPlayer, rageBoolEnemy;
+
 	do{ // Allows replay at very end
 		randnum = rand() % 5 + 1;
 
-		//Determines your signature catchphrase. These are all very good.
+		//Determines your signature catchphrase. These are all very good. Used on a random generator for Rummage
 		if(randnum == 1){ 
 			catchPhrase = "Booper Dooper!";
 		}else if(randnum == 2){
@@ -135,8 +137,8 @@ int main(){
 			cin.ignore(100, '\n');
 
 			if(yesNo == 'Y'){ //Allows you to enter the name of your prop
-				cout << "\nWhat is your prop?\n"
-						<< "[Enter Name of Prop] --> ";
+				cout << "\nWhat is your prop?"
+					 << "\n[Enter Name of Prop] --> ";
 				getline(cin, prop);
 
 				do{
@@ -212,7 +214,7 @@ int main(){
 			}
 		}while(yesNo == 'N');
 
-		cout << "[PRESS ENTER TO CONTINUE STORY]";
+		cout << "\n[PRESS ENTER TO CONTINUE STORY]\n";
 		cin.ignore(100, '\n');
 
 		//////////////////////////////// BEGINS STORY BLOCK ////////////////////////////////////
@@ -323,6 +325,9 @@ int main(){
 			//switch case for choices
 			switch(menuChoice){
 				case 1: //Case for ATTACK
+				if(rageBoolPlayer == true){
+					playerDamage = rageMultiplierPlayer;
+				}
 					if(randnum == 2){
 						playerDamage -= defense;
 						cout << "\nYou tried to land a massive attack on your doppleganger, but tripped!"
@@ -331,14 +336,39 @@ int main(){
 						cout << "\nYou ATTACKED Evil " << cosplayChar << " for " << playerDamage << " health!\n";
 					}
 					enemyHealth -= playerDamage; // Subtracts players attack points from the enemy's current health
+					rageBoolPlayer = false;
 					break;
 				case 2: //Case for DEFEND (blocks enemy attack to an extent for one round)
 					defense = (enemyDamage * 1.75) - enemyDamage ; //formula I made up to defend in case enemy attacks. Pretty sure it works.
 
 					cout << "\nYou DENFENDED against Evil " << cosplayChar << "!" << endl;
+					rageBoolPlayer = false; //ensures the rageBool resets to false after it is used
 					break;
 				case 3: //Case for RUMMAGE (random chance for power up)
+					randnum = rand() % 3 + 1;
+					if(randnum == 1){ //SIGNATURE CATCH PHRASE!!! 
+						cout << "\nYou find nothing in your bag..."
+							 << "\nBUT You use your signature catch phrase:\n"
+							 << "\"" << catchPhrase << "\"" << endl
+							 << "... Nothing else happens\n";
+						rageBoolPlayer = false;
 
+					}else if(randnum == 2){
+						cout << "\nYou look through your bag and find a bottle of Mountain Dew"
+							 << "\nDrinking it, you feel healed..."
+							 << "\nYOUR HEALTH INCREASED 10 POINTS!\n";
+						playerHealth += 10; // Adds ten points total to the players HP
+						rageBoolPlayer = false;
+						
+					}else{
+						cout << "\nYou take a quick Reddit break"
+							 << "\nYou notice you got a comment on your recent meme\n"
+							 << "\n\"ElonBaby69 commented on your post: L meme enjoy your downvote lol.\"\n"
+							 << "\nThis ENRAGES you! Your Attack INCREASED for next round!";
+						rageMultiplierPlayer = (playerDamage * 1.75) + playerDamage; //Formula similar to Defene except ADDS damage instead of removes
+						playerDamage = rageMultiplierPlayer;
+						rageBoolPlayer = true; //SETS RAGE TO TRUE TO USE FOR NEXT ROUND ONLY!
+					}
 					break;
 			}
 			if(enemyHealth <= 0){
@@ -357,6 +387,9 @@ int main(){
 				randnum = rand() % 4 + 1;
 
 				if(randnum == 1 || randnum == 4){ //ATTACK
+					if(rageBoolEnemy == true){
+						enemyDamage = rageMultiplierEnemy;
+					}
 						if(menuChoice == 2){
 							enemyDamage -= defense; //subtracts the defense number (menu choice 2) from the enemy's initial attack points
 							cout << "\nEvil " << cosplayChar << " slipped and barely scratched you!";
@@ -364,12 +397,31 @@ int main(){
 						cout << "\nEvil " << cosplayChar << " attacked you with their prop for " << enemyDamage << " of your health!";
 					
 						playerHealth -= enemyDamage; // Subtracts enemy's current damage from players current health
+					rageBoolEnemy = false; //RESETS RAGE BOOL 
 				}else if(randnum == 2){
 					//DEFEND FOR ONE ROUND
 						defense = (playerDamage * 1.75) - playerDamage ; //formula from above
 						cout << "\nEvil " << cosplayChar << " DENFENDED against you!";
+						rageBoolEnemy = false; //RESETS RAGE BOOL
 				}else{ //RANDOM CHANCE FOR POWERUP
-
+					randnum = rand() % 3 + 1;
+					if(randnum == 1){ //Does NOTHING
+						cout << "\nEvil " << cosplayChar << " looked through their bag and found unused deodorant..."
+							 << "\nThey sigh and move on. Nothing happened.";
+						rageBoolEnemy = false;	 //RESETS RAGE BOOL
+					}else if(randnum == 2){ //Increases HEALTH
+						cout << "\nEvil " << cosplayChar << " looked through their bag and found some Doritos!"
+							 << "\nThey eat the whole bag instantly. THEIR HEALTH RAISED 10 POINTS!";
+						enemyHealth += 10; //adds ten total points to enemy health
+						rageBoolEnemy = false; // RESETS RAGE BOOL
+					}else{ //adds RAGE MULTIPLIER
+						cout << "\nEvil " << cosplayChar << " gets a Discord notification:\n"
+							 << "\nSide Kitten: \"I think I want to break up... uwu\"\n"
+							 << "\nEvil " << cosplayChar << " is ENRAGED! ATTACK INCREASED NEXT ROUND!";
+						rageMultiplierEnemy = (enemyDamage * 1.75) + enemyDamage; //forumla similar, but opposite effect, of the defense
+						enemyDamage = rageMultiplierEnemy;
+						rageBoolEnemy = true; //ENFORCES RAGE BOOL
+					}
 				} 
 				//Display results of enemy turn
 				cout << "\nYou now have " << playerHealth << " health!\n";
