@@ -349,7 +349,7 @@ int main(){
 					if(randnum == 1){ //SIGNATURE CATCH PHRASE!!! 
 						cout << "\nYou find nothing in your bag..."
 							 << "\nBUT You use your signature catch phrase:\n"
-							 << "\"" << catchPhrase << "\"" << endl
+							 << "\n\"" << catchPhrase << "\"\n" << endl
 							 << "... Nothing else happens\n";
 						rageBoolPlayer = false;
 
@@ -405,19 +405,23 @@ int main(){
 						rageBoolEnemy = false; //RESETS RAGE BOOL
 				}else{ //RANDOM CHANCE FOR POWERUP
 					randnum = rand() % 3 + 1;
+
 					if(randnum == 1){ //Does NOTHING
 						cout << "\nEvil " << cosplayChar << " looked through their bag and found unused deodorant..."
-							 << "\nThey sigh and move on. Nothing happened.";
+							 << "\nThey sigh and move on. Nothing happened.\n";
 						rageBoolEnemy = false;	 //RESETS RAGE BOOL
+
 					}else if(randnum == 2){ //Increases HEALTH
 						cout << "\nEvil " << cosplayChar << " looked through their bag and found some Doritos!"
-							 << "\nThey eat the whole bag instantly. THEIR HEALTH RAISED 10 POINTS!";
+							 << "\nThey eat the whole bag instantly. THEIR HEALTH RAISED 10 POINTS!\n";
 						enemyHealth += 10; //adds ten total points to enemy health
+						cout << "They now have " << enemyHealth << " health!\n";
 						rageBoolEnemy = false; // RESETS RAGE BOOL
+
 					}else{ //adds RAGE MULTIPLIER
 						cout << "\nEvil " << cosplayChar << " gets a Discord notification:\n"
 							 << "\nSide Kitten: \"I think I want to break up... uwu\"\n"
-							 << "\nEvil " << cosplayChar << " is ENRAGED! ATTACK INCREASED NEXT ROUND!";
+							 << "\nEvil " << cosplayChar << " is ENRAGED! ATTACK INCREASED NEXT ROUND!\n";
 						rageMultiplierEnemy = (enemyDamage * 1.75) + enemyDamage; //forumla similar, but opposite effect, of the defense
 						enemyDamage = rageMultiplierEnemy;
 						rageBoolEnemy = true; //ENFORCES RAGE BOOL
@@ -449,7 +453,7 @@ int main(){
 					<< "\n|------------------|"
 					<< "\n|    PLAY AGAIN?   |"
 					<< "\n|       [Y/N]      |"
-					<< "\n└──────────────────┘";
+					<< "\n└──────────────────┘\n";
 			cin >> yesNo;
 			yesNo = toupper(yesNo);
 			while(cin.fail() || yesNo != 'Y' && yesNo != 'N'){ //User validation for replay
@@ -478,7 +482,7 @@ int main(){
 					<< "\n|------------------|"
 					<< "\n|    PLAY AGAIN?   |"
 					<< "\n|       [Y/N]      |"
-					<< "\n└──────────────────┘";
+					<< "\n└──────────────────┘\n";
 			cin >> yesNo;
 			yesNo = toupper(yesNo);
 			while(cin.fail() || yesNo != 'Y' && yesNo != 'N'){ //User validation for replay
@@ -491,7 +495,6 @@ int main(){
 			cin.ignore(100, '\n');
 		}
 	}while(yesNo == 'Y');	 
-
 	return 0;
 }
 	
