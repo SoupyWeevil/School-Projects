@@ -6,31 +6,18 @@ using namespace std;
 
 int main(){
     string border(50, '-'), name = "Grace" , otherName = "John";
-    int enemyDamage, playerDamage, enemyHealth, playerHealth;
+    int enemyDamage, playerDamage, enemyHealth, playerHealth ,defense;
     playerDamage = 20;
     srand(time(0));  
 
     for(int i = 0 ; i < 5 ; i++){
-        enemyDamage = (rand() % 11 + 10);
+        enemyDamage = (rand() % 30 + 10);
         cout << enemyDamage << "\n";
+
+        defense = (enemyDamage * 1.75) - enemyDamage ;
+        cout << defense << endl;
     }
     playerHealth = playerDamage * 2;
-
-    cout << "\n" << border << endl
-		 << "\n┌────── ⋆⋅☆⋅⋆ ──────┐"
-		 << "\n|    -- STATS --    |"
-		 << "\n| ★  • • • • • •  ★ |"
-		 << "\n| You --            |"
-         << "\n|     HEALTH: " << playerHealth << "    |"
-         << "\n|     ATTACK: " << playerDamage << "    |"
-         << "\n| ★  • • • • • •  ★ |"
-         << "\n| Enemy --          |"
-         << "\n|     HEALTH: " << enemyHealth << "    |"
-         << "\n|     ATTACK: " << enemyDamage << "    |"
-         << "\n└────── ⋆⋅☆⋅⋆ ──────┘\n";
-         
-
-
-
+    
     return 0;
 }

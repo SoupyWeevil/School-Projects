@@ -22,8 +22,9 @@ int main(){
 		 */
 		 
 	string name, cosplayChar, catchPhrase, border(50, '-'), prop;
-	int playerHealth, enemyHealth, playerDamage, enemyDamage, menuChoice, rageMultiplier, defense, turn, randnum;
+	int playerHealth, enemyHealth, playerDamage, enemyDamage, menuChoice, rageMultiplier, defense, turn = 0, randnum;
 	char yesNo;
+	bool propBool;
 
 	randnum = rand() % 5 + 1;
 
@@ -75,7 +76,7 @@ int main(){
 	getline(cin, name);
 	
 	do{ //Allows you to choose your name
-		cout << "\nAre you sure your name is " << name << " ?\n"
+		cout << "\nAre you sure your name is " << name << "?\n"
 			 << "[Y/N] --> ";
 		cin >> yesNo;
 		yesNo = toupper(yesNo);
@@ -159,7 +160,7 @@ int main(){
 						 << "What is your prop? --> ";
 					getline(cin, prop);
 				}
-				playerDamage = 20; // If player HAS a prop, attack stats are RAISED
+				propBool = true; // If player HAS a prop, attack stats are RAISED
 			}while(yesNo == 'N');
 		}else{
 			cout << "\n Are you sure you don't have a prop?\n"
@@ -177,7 +178,7 @@ int main(){
 			cin.ignore(100, '\n');
 
 			if(yesNo == 'Y'){
-				playerDamage = 10; //If player does NOT have a prop, attack stats stay neutral at 10
+				propBool = false; //If player does NOT have a prop, attack stats stay neutral at 10
 			}else{
 				cout << "\nWhat is your prop?"
 					 << "\n[Enter Name of Prop] --> ";
@@ -203,7 +204,7 @@ int main(){
 							 << "What is your prop? --> ";
 						getline(cin, prop);
 					}
-					playerDamage = 20; // If player HAS a prop, attack stats are RAISED
+					propBool = true; // If player HAS a prop, attack stats are RAISED (seen in do-while game loop)
 				}while(yesNo == 'N');
 			}
 		}
@@ -248,20 +249,19 @@ int main(){
 	cin.ignore(100, '\n');
 
 	cout << "\n" << border << endl
-		 << "\n" << cosplayChar << ": You know what? I won't stand for this...\n"
-		 << cosplayChar << ": I challenge you.. to a DUEL\n"
+		 << "\n" << name << ": You know what? I won't stand for this...\n"
+		 << name << ": I challenge you.. to a DUEL\n"
 		 << "\n[Evil " << cosplayChar << " and their friends stop laughing]\n"
-		 << "\nEvil " << cosplayChar << ": Okay then. show me what you got."
-		 << "\nEvil " << cosplayChar << ": But if I win, you have to strip your cosplay for the rest of the convention."
-		 << "\nEvil " << cosplayChar << ": So don't get too excited.\n"
+		 << "\nEvil " << cosplayChar << ": Okay then. show me what you got.\n"
+		 << "\nEvil " << cosplayChar << ": But if I win, you have to strip your cosplay for the rest of the convention.\n"
 		 << "\n[PRESS ENTER TO CONTINUE]";
 	cin.ignore(100, '\n');
 	////////////////////////////////////// STORY BLOCK END ///////////////////////////////////////
 
 	enemyDamage = rand() % 11 + 10; //Randomizes enemy stats from 10 - 20
-	enemyHealth = enemyDamage * 2; //Balances enemy damage and health
+	enemyHealth = enemyDamage * 3.5; //Balances enemy damage and health
 
-	playerHealth = playerDamage * 2; //Balances enemy health and damage (potential for 20 or 40)
+	playerHealth = playerDamage * 3.5; //Balances enemy health and damage (potential for 20 or 40)
 
 
 	cout << "\n" << border << endl // Stats for both characters
@@ -279,8 +279,20 @@ int main(){
 	
 	//DO WHILE GAME LOOP -- Players will continue until one of them die
 	do{
+		enemyDamage = enemyDamage; //Reinitializes damage in case either player chose to defend (defense temporarily reduces damage)
+		if(propBool == true){
+			playerDamage = 20;
+		}else if(propBool == false){
+			playerDamage = 10;
+		}
 		
-		cout << "\n╔───────────────────────╗"
+
+		cout << "\n[PRESS ENTER FOR TURN " << ++turn << "]";
+		cin.ignore(100, '\n');
+
+		cout << "\n" << border << endl
+			 << "\n•°. *࿐ YOUR TURN\n"
+			 << "\n╔───────────────────────╗"
 			 << "\n|   WHAT WILL YOU DO?   |"
 			 << "\n|-----------------------|"
 			 << "\n| 1.) Attack            |"
@@ -304,20 +316,56 @@ int main(){
 			cin >> menuChoice;
 		}
 		
-	//switch case for choices
+		//switch case for choices
 		switch(menuChoice){
-			case 1:
-
+			case 1: //Case for ATTACK
+			 	if(randnum == 2){
+					playerDamage -= defense;
+					cout << "\nYou tried to land a massive attack on your doppleganger, but tripped!"
+						 << "\nYou only managed to bump into them, taking " << playerDamage << " health from them!" << endl;
+				}else{
+					cout << "\nYou ATTACKED Evil " << cosplayChar << " for " << playerDamage << " health!\n";
+				}
+				enemyHealth -= playerDamage; // Subtracts players attack points from the enemy's current health
 				break;
-			case 2:
+			case 2: //Case for DEFEND (blocks enemy attack to an extent for one round)
+				defense = (enemyDamage * 1.75) - enemyDamage ; //formula I made up to defend in case enemy attacks. Pretty sure it works.
 
+				cout << "\nYou DENFENDED against Evil " << cosplayChar << "!" << endl;
 				break;
-			case 3:
+			case 3: //Case for RUMMAGE (random chance for power up)
 
 				break;
 		}
 	
-	//Display results of choice
+		//Display results of choice
+		cout << "\nEvil " << cosplayChar << " now has " << enemyHealth << " health!\n"
+			 << "\n[PRESS ENTER FOR ENEMY TURN]\n";
+		cin.ignore(100, '\n');
+
+		cout << "\n" << border << endl
+			 << "\n •°. *࿐ ENEMY TURN \n";
+
+		//Enemy Turn
+		randnum = rand() % 4 + 1;
+
+		if(randnum == 1 || randnum == 4){ //ATTACK
+				if(menuChoice == 2){
+					enemyDamage -= defense; //subtracts the defense number (menu choice 2) from the enemy's initial attack points
+					cout << "\nEvil " << cosplayChar << " slipped and barely scratched you!";
+				}else{
+					cout << "\nEvil " << cosplayChar << " attacked you with their prop for " << enemyDamage << " of your health!";
+				}
+				playerHealth -= enemyDamage; // Subtracts enemy's current damage from players current health
+		}else if(randnum == 2){
+			//DEFEND FOR ONE ROUND
+				defense = (playerDamage * 1.75) - playerDamage ; //formula from above
+
+				cout << "\nEvil " << cosplayChar << " DENFENDED against you!";
+		}else{ //RANDOM CHANCE FOR POWERUP
+
+		} 
+		//Display results of enemy turn
 	
 	// KEEP LOOPING UNTIL DEATH OR QUIT
 	}while(playerHealth > 0 || enemyHealth > 0);
