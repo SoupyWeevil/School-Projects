@@ -15,8 +15,40 @@
 #include <iomanip>
 using namespace std;
 
+int rollDice();
+int displayMenuChoice();
+int luckyDice(string);
 
 
+//****************************************************************************************//
+int main(){ 					//Main gameplay loop -- calls each of the dice functions
+	int choice;
+	cout << "\n┏━━━━━━━━━━✦❘༻༺❘✦━━━━━━━━━━━┓"
+	 	 << "\n    Welcome to Dice Casino     "
+		 << "\n ----------------------------- "
+		 << "\n   Here you can choose one     "
+		 << "\n  of three unique dice games   "
+		 << "\n ----------------------------- "
+		 << "\n┗━━━━━━━━━━✦❘༻༺❘✦━━━━━━━━━━━┛\n";
+
+	do{
+		choice = displayMenuChoice(); 
+		
+		switch(choice){
+			case 1:  // ROLL CALL
+				cout << "\nchoice one works\n";
+				break;
+
+			case 2:  // OVER UNDER
+				break;
+
+			case 3:  // LUCKY DICE
+				break;
+		}
+	}while(!(choice == 4));
+	return 0;
+}
+//**************************************** F U N C T I O N S ***************************************** */
 int displayMenuChoice(){ 		//allows player to choose which game function to play
 	int choice;
 	
@@ -99,33 +131,4 @@ int luckyDice(string player){ 	//Do-While loop for user choice to continue rolli
 	}while(yesNo == 'Y' && accumulatedTotal > 0); //Continues as long as player wants to keep playing OR total is above 0
 
 	return accumulatedTotal;
-}
-
-//****************************************************************************************//
-int main(){ 					//Main gameplay loop -- calls each of the dice functions
-	int choice;
-	cout << "\n┏━━━━━━━━━━✦❘༻༺❘✦━━━━━━━━━━━┓"
-	 	 << "\n    Welcome to Dice Casino     "
-		 << "\n ----------------------------- "
-		 << "\n   Here you can choose one     "
-		 << "\n  of three unique dice games   "
-		 << "\n ----------------------------- "
-		 << "\n┗━━━━━━━━━━✦❘༻༺❘✦━━━━━━━━━━━┛\n";
-
-	do{
-		choice = displayMenuChoice(); 
-		
-		switch(choice){
-			case 1:  // ROLL CALL
-				cout << "\nchoice one works\n";
-				break;
-
-			case 2:  // OVER UNDER
-				break;
-
-			case 3:  // LUCKY DICE
-				break;
-		}
-	}while(!(choice == 4));
-	return 0;
 }
