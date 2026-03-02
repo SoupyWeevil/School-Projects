@@ -1,6 +1,6 @@
 /************************************
 * Editor      : Grace Brown			*
-* Last Edited : 25 Feb 2026			*
+* Last Edited : 2 March 2026    	*
 * File Name   : prog2.cpp			*
 * Purpose     : Player gets to TEST *
 *				their luck in a fun *
@@ -15,13 +15,14 @@
 #include <iomanip>
 using namespace std;
 
+//************************* P R O T O T Y P E S ****************************************//
+
 int rollDice();
 int displayMenuChoice();
 int luckyDice(string);
 
-
-//****************************************************************************************//
-int main(){ 					//Main gameplay loop -- calls each of the dice functions
+//*************************** M A I N **************************************************//
+int main(){ 					
 	int choice;
 	cout << "\n┏━━━━━━━━━━✦❘༻༺❘✦━━━━━━━━━━━┓"
 	 	 << "\n    Welcome to Dice Casino     "
