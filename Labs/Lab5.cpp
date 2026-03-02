@@ -1,9 +1,9 @@
-/***************************
-* Name       : Grace Brown *
-* Last Edited: 26 Feb 2026 *
-* File Name  : Lab5.cpp    *
-* Purpose    : Battle sim  *
-***************************/
+/****************************
+* Name       : Grace Brown  *
+* Last Edited: 2 March 2026 *
+* File Name  : Lab5.cpp     *
+* Purpose    : Battle sim   *
+****************************/
 
 #include <cstdlib>
 #include <iostream>
