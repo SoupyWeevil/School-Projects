@@ -4,20 +4,22 @@
 #include <ctime>
 using namespace std;
 
+int test(int x, int y);
+
 int main(){
-    string border(50, '-'), name = "Grace" , otherName = "John";
-    int enemyDamage, playerDamage, enemyHealth, playerHealth ,defense;
-    playerDamage = 20;
-    srand(time(0));  
+    int x, y;
+    cout << "Please enter a number: ";
+    cin >> x;
+    cout << "\nPlease enter a number again: ";
+    cin >> y;
 
-    for(int i = 0 ; i < 5 ; i++){
-        enemyDamage = (rand() % 30 + 10);
-        cout << enemyDamage << "\n";
-
-        defense = (enemyDamage * 1.75) - enemyDamage ;
-        cout << defense << endl;
-    }
-    playerHealth = playerDamage * 2;
-    
+    cout << "the sum of x and y is " << test(x, y) << endl;    
     return 0;
+}
+
+int test(int x, int y){
+    int sum = x + y;
+
+    return sum;
+
 }

@@ -19,7 +19,7 @@ using namespace std;
 
 int rollDice();
 int displayMenuChoice();
-int luckyDice(string);
+int luckyDice(string player);
 
 //*************************** M A I N **************************************************//
 int main(){ 					
