@@ -6,7 +6,13 @@
 #include "prog2.h"
 using namespace std;
 
-int displayMenuChoice(){ 		//allows player to choose which game function to play
+/*
+Name		: displayMenuChoice
+Return type	: integer
+Parameters	: N/A
+Purpose		: displays meny choices and returns the user input for choice
+*/
+int displayMenuChoice(){ 		
 	int choice;
 	
 	cout << "\n◤━━━━━━━━━━━━━━━━━━━━━━━━━◥\n"
@@ -33,7 +39,13 @@ int displayMenuChoice(){ 		//allows player to choose which game function to play
 	cin.ignore(100, '\n');
 	return choice;
 }
-//Simulated rolling two dice -- called every time total of the two dice needs to be determined
+
+/*
+Name		: rollDice
+Return type	: integer
+Parameters	: N/A
+Purpose		: generates two unique dice totals -- returns total of the two
+*/
 int rollDice(){ 				
 	int dice1, dice2, total;
 
@@ -45,6 +57,12 @@ int rollDice(){
 	return total; 				// Gives the total to be used when function is called
 }
 
+/*
+Name		: luckyDice
+Return type	: N/A
+Parameters	: string for player name
+Purpose		: allows user to roll two dice continuously until they roll identical values 
+*/
 void luckyDice(string player){ 	//Do-While loop for user choice to continue rolling
 	int dice1, dice2, accumulatedTotal, turn = 1;	
 	char yesNo;					//Allows user to choose if they continue rolling
@@ -92,7 +110,14 @@ void luckyDice(string player){ 	//Do-While loop for user choice to continue roll
 	
 }
 
-void gameDescription(){
+
+/*
+Name		: gameDescription
+Return type	: Void
+Parameters	: N/A
+Purpose		: displays rules and description of games
+*/
+void gameDescription(){ 
 	cout << "\n‿︵‿︵୨˚̣̣̣͙୧ - GAME DESCRIPTION - ୨˚̣̣̣͙୧‿︵‿︵\n"
 		 << "\nRoll Call : You guess the TOTAL ROLL of two 6-sided die\n"
 		 << "\nOver Under: Tells your the initial total of two 6-sided die and you have to guess if the NEXT total will be OVER or UNDER\n"
