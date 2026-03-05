@@ -18,7 +18,7 @@ using namespace std;
 
 int main(){ 		
 	
-	srand(time(0)); //CREATES UNQIUE UNIX TIMESTANP SEED 
+	srand(time(0)); //CREATES UNQIUE UNIX TIMESTAMP SEED 
 	
 	int choice; //Holds the return value for displayMenuChoice()
 	cout << "\n┏━━━━━━━━━━✦❘༻༺❘✦━━━━━━━━━━━┓"
@@ -33,10 +33,11 @@ int main(){
 
 	gameDescription(); //Gives rules to game
 
-	cout << "\n[ENTER TO CONTINUE]\n";
-	cin.ignore(100, '\n');
 
 	do{ // creates game loop! ends if player enters 4
+		cout << "\n[ENTER TO CONTINUE]\n";
+		cin.ignore(100, '\n');
+
 		choice = displayMenuChoice(); //assigns the return of function to choice variable
 		
 		switch(choice){ //uses function return to command switch
@@ -136,14 +137,11 @@ int main(){
 						}
 						break;
 				}
-				cout << firstRoll << " " << secondRoll;
 				break;
 		
 			case 3:  // LUCKY DICE
 				break;
 		}
-		cout << "\n[ENTER TO CONTINUE]\n";
-		cin.ignore(100, '\n');
 
 	}while(!(choice == 4));
 	return 0;
