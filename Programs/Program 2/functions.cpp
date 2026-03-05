@@ -78,16 +78,16 @@ void luckyDice(string player){ 	//Do-While loop for user choice to continue roll
 		dice2 = rand() % 6 + 1;
 		
 		if(dice1 == dice2){		//If branches based on if dice are equal or not
-			cout << "Oops! You rolled double " << dice1 << "'s!\n"
+			cout << "Oops!" << player << " rolled double " << dice1 << "'s!\n"
 				 << "You lost all your points for this round!\n";
 			accumulatedTotal = 0; //Automatically sets accumulated total to 0 -- ends round
 		}else{
-			cout << "You Rolled a " << dice1 << " and a " << dice2 << "!\n";
+			cout << player << " rolled a " << dice1 << " and a " << dice2 << "!\n";
 			diceTotal = dice1 + dice2;
 			accumulatedTotal += diceTotal; //Adds running total to accumulator for total overall points
 		}
 
-		cout << "\nYour new total is " << accumulatedTotal << "!\n";
+		cout << "\n" << player << "\'s new total is " << accumulatedTotal << "!\n";
 
 		if(accumulatedTotal > 0){  			// Allows user to keep plying IF they havent rolled a double
 			cout << "Would you like to test your luck and ROLL AGAIN?\n"

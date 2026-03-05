@@ -143,10 +143,10 @@ int main(){
 				int playerCount;
 				cout << "\nHow many players are there? --> ";
 				cin >> playerCount;
-
-				while(cin.fail() || playerCount <= 0 ){
+				
+				while(cin.fail() || playerCount <= 0 ){ //User validation loop
 					if(cin.fail()){
-						cout << "\nPlease enter a number\n!";
+						cout << "\nPlease enter a number!\n";
 					}else{
 						cout <<"\nPlease enter more than 0 players! --> ";
 					}
@@ -155,12 +155,17 @@ int main(){
 
 					cin >> playerCount;
 				}
-				
+				cin.ignore(100, '\n');
+
+				for(int i = 0 ; i < playerCount ; i++){
+					cout << "\n★・・・・・・★\n"
+						 << "\nPlease enter Player Name --> ";
+					getline(cin, playerName);
+					cout << "\n★・・・・・・★\n";
+					luckyDice(playerName);
+				}
 				
 
-				cout << "\nPlease enter Player Name --> ";
-				getline(cin, playerName);
-				luckyDice(playerName);
 				break;
 		}
 
