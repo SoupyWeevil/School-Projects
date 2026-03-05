@@ -140,6 +140,24 @@ int main(){
 				break;
 		
 			case 3:  // LUCKY DICE
+				int playerCount;
+				cout << "\nHow many players are there? --> ";
+				cin >> playerCount;
+
+				while(cin.fail() || playerCount <= 0 ){
+					if(cin.fail()){
+						cout << "\nPlease enter a number\n!";
+					}else{
+						cout <<"\nPlease enter more than 0 players! --> ";
+					}
+					cin.clear();
+					cin.ignore(100, '\n');
+
+					cin >> playerCount;
+				}
+				
+				
+
 				cout << "\nPlease enter Player Name --> ";
 				getline(cin, playerName);
 				luckyDice(playerName);
