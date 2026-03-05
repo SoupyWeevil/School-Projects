@@ -19,7 +19,7 @@ using namespace std;
 int main(){ 		
 	
 	srand(time(0)); //CREATES UNQIUE UNIX TIMESTAMP SEED 
-	
+	string playerName; // used in lucky dice game
 	int choice; //Holds the return value for displayMenuChoice()
 	cout << "\n┏━━━━━━━━━━✦❘༻༺❘✦━━━━━━━━━━━┓"
 	 	 << "\n    Welcome to Dice Casino     "
@@ -140,6 +140,9 @@ int main(){
 				break;
 		
 			case 3:  // LUCKY DICE
+				cout << "\nPlease enter Player Name --> ";
+				getline(cin, playerName);
+				luckyDice(playerName);
 				break;
 		}
 

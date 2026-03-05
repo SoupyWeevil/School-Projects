@@ -45,7 +45,7 @@ int rollDice(){
 	return total; 				// Gives the total to be used when function is called
 }
 
-int luckyDice(string player){ 	//Do-While loop for user choice to continue rolling
+void luckyDice(string player){ 	//Do-While loop for user choice to continue rolling
 	int dice1, dice2, accumulatedTotal, turn = 1;	
 	char yesNo;					//Allows user to choose if they continue rolling
 	do{							//Continues rolling BY USERS CHOICe
@@ -84,10 +84,12 @@ int luckyDice(string player){ 	//Do-While loop for user choice to continue rolli
 				cin >> yesNo;
 				yesNo = toupper(yesNo);
 			}
+			cin.ignore(100, '\n');
 		}
 	}while(yesNo == 'Y' && accumulatedTotal > 0); //Continues as long as player wants to keep playing OR total is above 0
 
-	return accumulatedTotal;
+	cout << "\n" << player << " ended their turn with " << accumulatedTotal << " points.\n";
+	
 }
 
 void gameDescription(){
