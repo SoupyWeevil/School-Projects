@@ -31,7 +31,7 @@ int main(){
 		
 		switch(choice){
 			case 1:  // ROLL CALL
-				cout << "\nchoice one works\n";
+				
 				break;
 
 			case 2:  // OVER UNDER

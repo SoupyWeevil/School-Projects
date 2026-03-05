@@ -1,10 +1,10 @@
 all:		Diceprog
 
 Diceprog:	Program2.cpp functions.cpp
-			g++ -Wall -o run Program2.cpp functions.cpp
+			g++ -Wall -o prog Program2.cpp functions.cpp
 
 run:		Diceprog
-			./run
+			./prog
 
 clean:		Diceprog
-			rm -f run
+			rm -f prog
