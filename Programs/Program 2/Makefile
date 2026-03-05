@@ -1,3 +1,4 @@
+
 all:		Diceprog
 
 Diceprog:	Program2.cpp functions.cpp

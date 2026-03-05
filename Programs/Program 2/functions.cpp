@@ -64,7 +64,7 @@ Parameters	: string for player name
 Purpose		: allows user to roll two dice continuously until they roll identical values 
 */
 void luckyDice(string player){ 	//Do-While loop for user choice to continue rolling
-	int dice1, dice2, accumulatedTotal, turn = 1;	
+	int dice1, dice2, accumulatedTotal = 0, turn = 1;	
 	char yesNo;					//Allows user to choose if they continue rolling
 	do{							//Continues rolling BY USERS CHOICe
 		int diceTotal;			// Stores temp dice total value to be added to accumulator

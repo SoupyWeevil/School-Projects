@@ -1,5 +1,8 @@
 /*
- function definitions for Program2.cpp
+Name        : Grace Brown
+Last Edited : 5 March 2026
+File Name   : prog2.h
+Purpose     : Function declarations for program2.cpp
 */
 
 
@@ -9,9 +12,9 @@
 #define PROG_2
 
 #include <string>
-int displayMenuChoice(); //Shows menu choices and allows user selection... returns the user selection as an int
-int rollDice(); //Generates two unique random dice numbers and returns the total
+int displayMenuChoice();            //Shows menu choices and allows user selection... returns the user selection as an int
+int rollDice();                     //Generates two unique random dice numbers and returns the total
 void luckyDice(std::string player); //Allows seperate users to roll dice repeatedly -- has seperate dice-roll mechanic then rollDice()
-void gameDescription();
+void gameDescription();             //displays game descriptions and rule
 
 #endif
