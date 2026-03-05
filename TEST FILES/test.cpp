@@ -4,22 +4,23 @@
 #include <ctime>
 using namespace std;
 
-int test(int x, int y);
+int rollDice(){ 				
+	int dice1, dice2, total;
+			// Gives a new generated seed each time rand() is called
 
-int main(){
-    int x, y;
-    cout << "Please enter a number: ";
-    cin >> x;
-    cout << "\nPlease enter a number again: ";
-    cin >> y;
+	dice1 = rand() % 6 + 1;  
+	dice2 = rand() % 6 + 1;
+	
+	total = dice1 + dice2;
 
-    cout << "the sum of x and y is " << test(x, y) << endl;    
-    return 0;
+	return total; 				// Gives the total to be used when function is called
 }
 
-int test(int x, int y){
-    int sum = x + y;
+int main(){
+    srand(time(0)); 	
+    for(int i = 0 ; i < 5 ; i++){
+        cout << rollDice() << endl;
+    }
 
-    return sum;
-
+    return 0;
 }

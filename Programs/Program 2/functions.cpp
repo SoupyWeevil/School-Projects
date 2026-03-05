@@ -36,16 +36,16 @@ int displayMenuChoice(){ 		//allows player to choose which game function to play
 //Simulated rolling two dice -- called every time total of the two dice needs to be determined
 int rollDice(){ 				
 	int dice1, dice2, total;
-	srand(time(0)); 			// Gives a new generated seed each time rand() is called
+
 	dice1 = rand() % 6 + 1;  
 	dice2 = rand() % 6 + 1;
+
 	total = dice1 + dice2;
 
 	return total; 				// Gives the total to be used when function is called
 }
 
 int luckyDice(string player){ 	//Do-While loop for user choice to continue rolling
-	srand(time(0)); 
 	int dice1, dice2, accumulatedTotal, turn = 1;	
 	char yesNo;					//Allows user to choose if they continue rolling
 	do{							//Continues rolling BY USERS CHOICe
@@ -88,4 +88,14 @@ int luckyDice(string player){ 	//Do-While loop for user choice to continue rolli
 	}while(yesNo == 'Y' && accumulatedTotal > 0); //Continues as long as player wants to keep playing OR total is above 0
 
 	return accumulatedTotal;
+}
+
+void gameDescription(){
+	cout << "\n‿︵‿︵୨˚̣̣̣͙୧ - GAME DESCRIPTION - ୨˚̣̣̣͙୧‿︵‿︵\n"
+		 << "\nRoll Call : You guess the TOTAL ROLL of two 6-sided die\n"
+		 << "\nOver Under: Tells your the initial total of two 6-sided die and you have to guess if the NEXT total will be OVER or UNDER\n"
+		 << "\nLucky Dice: Roll two 6-sided die until you want to HOLD your points.BUT BE CAREFUL! If you roll a DOUBLE...YOU LOSE ALL YOUR POINTS!\n" 
+		 << setw(12) << " " << "(Multi-player friendly!)\n"
+		 << "\n‿︵‿︵୨˚̣̣̣͙୧ -------------------- ୨˚̣̣̣͙୧‿︵‿︵\n";
+
 }
