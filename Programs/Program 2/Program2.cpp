@@ -143,15 +143,19 @@ int main(){
 			case 3:  // LUCKY DICE
 				int playerCount, playerTotal, highScore = 0; //intializing high score to give basis of comparison
 				string winner;
-				cout << "\nHow many players are there? --> ";
+				cout << "\nHow many friends are playing? --> ";
 				cin >> playerCount;
 				
-				while(cin.fail() || playerCount <= 0 ){ //User validation loop
+				while(cin.fail() || playerCount <= 0 || playerCount > 10){ //User validation loop
 					if(cin.fail()){
 						cout << "\nPlease enter a number!\n";
+					}else if(playerCount <0){
+						cout << "\nPlease enter more than 0 players! --> ";
 					}else{
-						cout <<"\nPlease enter more than 0 players! --> ";
+						cout << "\nThats a lie. No one has more than 9 friends."
+							 << "\nPlease enter a REASONABLE number (between 1 and 9) --> ";
 					}
+
 					cin.clear();
 					cin.ignore(100, '\n');
 
@@ -161,7 +165,7 @@ int main(){
 
 				for(int i = 1 ; i <= playerCount ; i++){ //begins loop that plays ONLY amount of players selected
 					cout << "\n★・・・・・・★\n"
-						 << "\nPlease enter Player " << i << " Name --> ";
+						 << "\nPlease enter Friend " << i << " Name --> ";
 					getline(cin, playerName);
 					cout << "\n★・・・・・・★\n";
 					playerTotal = luckyDice(playerName);
@@ -172,11 +176,19 @@ int main(){
 					}
 				}
 				
-				cout << "\n●・○・●・○・●・○・●・○・●・○・●・○・●"
+				if(highScore){
+					cout << "\n●・○・●・○・●・○・●・○・●・○・●・○・●"
 					 << "\n      CONGRATULATIONS            "
 					 << "\n       " << winner << " WINS!!       "
 					 << "\n   They had " << highScore << " points!"
 					 << "\n●・○・●・○・●・○・●・○・●・○・●・○・●\n";
+				}else{
+					cout << "\n●・○・●・○・●・○・●・○・●・○・●・○・●"
+						 << "\n      Ah!  So sorry!             "
+						 << "\n       Nobody wins               "
+						 << "\n●・○・●・○・●・○・●・○・●・○・●・○・●\n";
+				}
+				
 				break;
 		}
 
