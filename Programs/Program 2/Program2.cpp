@@ -76,15 +76,15 @@ int main(){
 				secondRoll = rollDice();
 
 				cout << "\nThe first Roll was " << firstRoll << "."
-					 << "\nWill the next roll be OVER, UNDER, or MATCH?!"
-					 << "\n---------------"
-					 << "\n CHOICE - TYPE"
-					 << "\n---------------"
-					 << "\n OVER   -  o   "
-					 << "\n UNDER  -  u   "
-					 << "\n MATCH  -  m   "
-					 << "\n---------------\n"
-					 << "\n--> ";
+					<< "\nWill the next roll be OVER, UNDER, or MATCH?!"
+					<< "\n---------------"
+					<< "\n CHOICE - TYPE"
+					<< "\n---------------"
+					<< "\n OVER   -  o   "
+					<< "\n UNDER  -  u   "
+					<< "\n MATCH  -  m   "
+					<< "\n---------------\n"
+					<< "\n--> ";
 				cin >> guess;
 				guess = toupper(guess); //converts Guess to UPPER for standardization https://cplusplus.com/reference/cctype/
 

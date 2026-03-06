@@ -17,10 +17,16 @@ int rollDice(){
 }
 
 int main(){
-    srand(time(0)); 	
-    for(int i = 0 ; i < 5 ; i++){
-        cout << rollDice() << endl;
-    }
+    srand(time(0)); 
+	int diceTotal = rollDice();
+	int answer;
+
+	cin >> answer;
+	if(diceTotal == answer){
+		cout << diceTotal;
+	}else{
+		cout << diceTotal;
+	}
 
     return 0;
 }
