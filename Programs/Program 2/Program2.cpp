@@ -1,6 +1,6 @@
 /************************************
 * Editor      : Grace Brown			*
-* Last Edited : 5 March 2026    	*
+* Last Edited : 6 March 2026    	*
 * File Name   : prog2.cpp			*
 * Purpose     : Player gets to TEST *
 *				their luck in a fun *
@@ -18,7 +18,8 @@ using namespace std;
 
 int main(){ 		
 	
-	srand(time(0)); //CREATES UNQIUE UNIX TIMESTAMP SEED 
+	srand(time(0)); //CREATES UNQIUE TIMESTAMP SEED FOR DICEROLL FUNCTIONS
+
 	string playerName; // used in lucky dice game
 	int choice; //Holds the return value for displayMenuChoice()
 	cout << "\n┏━━━━━━━━━━✦❘༻༺❘✦━━━━━━━━━━━┓"
@@ -47,7 +48,7 @@ int main(){
 					 << "--> ";
 				cin >> num;
 
-				while(cin.fail()){
+				while(cin.fail()){ // user validation
 					cin.clear();
 					cin.ignore(100, '\n');
 
@@ -71,7 +72,7 @@ int main(){
 				char guess; //holds user guess
 				int firstRoll, secondRoll; // holds stationary diceRoll returns... prevents randomization each call!
 				
-				firstRoll = rollDice();
+				firstRoll = rollDice(); //holds unique dice roll values
 				secondRoll = rollDice();
 
 				cout << "\nThe first Roll was " << firstRoll << "."
@@ -140,7 +141,8 @@ int main(){
 				break;
 		
 			case 3:  // LUCKY DICE
-				int playerCount;
+				int playerCount, playerTotal, highScore = 0; //intializing high score to give basis of comparison
+				string winner;
 				cout << "\nHow many players are there? --> ";
 				cin >> playerCount;
 				
@@ -157,18 +159,32 @@ int main(){
 				}
 				cin.ignore(100, '\n');
 
-				for(int i = 0 ; i < playerCount ; i++){
+				for(int i = 1 ; i <= playerCount ; i++){ //begins loop that plays ONLY amount of players selected
 					cout << "\n★・・・・・・★\n"
-						 << "\nPlease enter Player Name --> ";
+						 << "\nPlease enter Player " << i << " Name --> ";
 					getline(cin, playerName);
 					cout << "\n★・・・・・・★\n";
-					luckyDice(playerName);
+					playerTotal = luckyDice(playerName);
+
+					if(playerTotal > highScore){ //updates names and values for comparison
+						winner = playerName;
+						highScore = playerTotal;
+					}
 				}
 				
-
+				cout << "\n●・○・●・○・●・○・●・○・●・○・●・○・●"
+					 << "\n      CONGRATULATIONS            "
+					 << "\n       " << winner << " WINS!!       "
+					 << "\n   They had " << highScore << " points!"
+					 << "\n●・○・●・○・●・○・●・○・●・○・●・○・●\n";
 				break;
 		}
 
 	}while(!(choice == 4));
+
+	cout << "\n┏━━━━━━━━━━✦❘༻༺❘✦━━━━━━━━━━━━┓"
+	 	 << "\n•           Goodbye!            • "
+		 << "\n┗━━━━━━━━━━✦❘༻༺❘✦━━━━━━━━━━━━┛\n";
+
 	return 0;
 }

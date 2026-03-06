@@ -1,3 +1,10 @@
+/*
+Name		: Grace Brown
+Last Edited	: 6 March 2026
+File Name	: functions.cpp
+Purpose		: holds function definitions for Program2.cpp
+*/
+
 #include <iostream>
 #include <string>
 #include <cctype>
@@ -59,11 +66,11 @@ int rollDice(){
 
 /*
 Name		: luckyDice
-Return type	: N/A
+Return type	: integer
 Parameters	: string for player name
 Purpose		: allows user to roll two dice continuously until they roll identical values 
 */
-void luckyDice(string player){ 	//Do-While loop for user choice to continue rolling
+int luckyDice(string player){ 	//Do-While loop for user choice to continue rolling
 	int dice1, dice2, accumulatedTotal = 0, turn = 1;	
 	char yesNo;					//Allows user to choose if they continue rolling
 	do{							//Continues rolling BY USERS CHOICe
@@ -107,6 +114,8 @@ void luckyDice(string player){ 	//Do-While loop for user choice to continue roll
 	}while(yesNo == 'Y' && accumulatedTotal > 0); //Continues as long as player wants to keep playing OR total is above 0
 
 	cout << "\n" << player << " ended their turn with " << accumulatedTotal << " points.\n";
+
+	return accumulatedTotal;
 	
 }
 
