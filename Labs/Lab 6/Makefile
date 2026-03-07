@@ -5,7 +5,7 @@
 #	Purpose		: Compilation instructions for Lab6.cpp
 
 
-all:		LabProg									
+all:		Labprog									
 
 Labprog:	Lab6.cpp functions.cpp 						#compile with just "make"
 			g++ -Wall -o lab Lab6.cpp functions.cpp

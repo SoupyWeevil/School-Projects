@@ -4,3 +4,6 @@
 * File Name     : functions.cpp
 * Purpose       : functions for Lab 6
 **************************************/
+
+#include "lab6.h"
+
