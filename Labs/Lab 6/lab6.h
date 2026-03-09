@@ -22,6 +22,4 @@ void areaSquare(double);  //calculated area of square based on user input
 void areaRectangle(double, double); //calculates area of rectangle based on user input
 void areaParallelogram(double, double ); //calculates area of parallelogram based on user input
 void areaCircle(double); //calculates area of circle based on user input
-
-
 #endif
