@@ -30,13 +30,13 @@ int main(){
                 break;
 
             case 2: //calls RECTANGLE
-                cout << "\nPlease enter the Length and Width (Seperated by a space) --> ";
+                cout << "\nPlease enter the Length and Width (Seperated by a space): \n ";
                 cin >> length >> width;
 
                 while(cin.fail() || length < 0 || width < 0){ //validation loop
                     cin.clear();
                     cin.ignore(100, '\n');
-                    cout << "Please enter valid measurements! --> ";
+                    cout << "Please enter valid measurements!\n ";
                     cin >> length >> width;
                 }
                 cin.ignore(100, '\n');
@@ -45,13 +45,13 @@ int main(){
                 break;
 
             case 3: //calls PARALLELOGRAM
-                cout << "\nPlease enter the Base and Height (Seperated by a space) --> ";
+                cout << "\nPlease enter the Base and Height (Seperated by a space): \n ";
                 cin >> base >> height;
 
                 while(cin.fail() || base < 0 || height < 0){ //validation loop
                     cin.clear();
                     cin.ignore(100, '\n');
-                    cout << "Please enter valid measurements! --> ";
+                    cout << "Please enter valid measurements! \n ";
                     cin >> base >> height;
                 }
                 cin.ignore(100, '\n');
