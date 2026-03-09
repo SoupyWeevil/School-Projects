@@ -23,7 +23,7 @@ int displayMenu(){
          << "\n| 2.) Rectangle                 |"
          << "\n| 3.) Parallelogram             |"
          << "\n| 4.) Circle                    |"
-         << "\n| 4.) EXIT                      |"
+         << "\n| 5.) EXIT                      |"
          << "\n└──────────── ⋆⋅☆⋅⋆ ────────────┘\n"
          << "\nEnter Choice Here --> ";
     cin >> choice;
@@ -44,49 +44,49 @@ int displayMenu(){
 }
 
 /*
-    Return Type : Double
+    Return Type : void
     Name        : areaSquare
     Parameters  : (double)side 
     Use         : Accepts user input from main and calculates the area of the square based on the input
     Return      : calculated solution for user's square
 */
-double areaSquare(double side){
-
-    return 0;
+void areaSquare(double side){
+    double area = pow(side, 2);
+    cout << "\nThe area of your Square is " << area << endl;
 } 
 
 /*
-    Return Type : Double
+    Return Type : void
     Name        : areaRectangle
     Parameters  : (double)height, (double)width
     Use         : Accepts user input from main and calculates area of rectangle based on input
     Return      : calculated solution for user's rectangle
 */
-double areaRectangle(double height, double width){
-
-    return 0;
+void areaRectangle(double length, double width){
+    double area = length * width;
+    cout << "\nThe area of your Rectangle is " << area << endl;
 }
 
 /*
-    Return Type : Double
+    Return Type : void
     Name        : areaParallelogram
     Parameters  : (double)base, (double)height
     Use         : Accepts user input from main and calculates araea based on input
     Return      : calculated solution for user's parallelogram
 */
-double areaParallelogram(double base, double height){
-
-    return 0;
+void areaParallelogram(double base, double height){
+    double area = base * height;
+    cout << "\nThe area of your Parallelogram is " << area << endl;
 }
 
 /*
-    Return Type : Double
+    Return Type : void
     Name        : areaCircle
     Parameters  : (double)radius
     Use         : Accepts user inptu from main and calculated area based on input AND global constant PI
     Return      : calculated solution for user's rectangle
 */
-double areaCircle(double radius){
-
-    return 0;
+void areaCircle(double radius){
+    double area = PI * pow(radius, 2);
+    cout << "\nThe area of your Circle is " << area << endl; 
 }
