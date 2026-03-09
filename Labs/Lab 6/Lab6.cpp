@@ -1,6 +1,6 @@
 /*************************************
 * Name          : Grace Brown
-* Last Edited   : 7 March 1016
+* Last Edited   : 9 March 1016
 * File Name     : Lab6.cpp
 * Purpose       : Main function for Lab 6
 **************************************/
@@ -80,7 +80,7 @@ int main(){
 
         cin.ignore(100, '\n');
     }while(choice != 5); //continues to cycle loop until EXIT is chosen
-    
+
     cout << "\nThanks for playing my riveting game hooray\n";
     return 0;
 }
