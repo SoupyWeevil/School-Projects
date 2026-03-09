@@ -8,7 +8,7 @@
 #include "lab6.h"
 
 int main(){
-    cout << "Hello";  
+    
     return 0;
 }
 
