@@ -7,3 +7,26 @@
 
 #include "lab6.h"
 
+void displayMenu(){
+
+}
+
+double areaSquare(double side){
+
+    return 0;
+} 
+
+double areaRectangle(double height, double width){
+
+    return 0;
+}
+
+double areaParallelogram(double base, double height){
+
+    return 0;
+}
+
+double areaCircle(double radius){
+
+    return 0;
+}
