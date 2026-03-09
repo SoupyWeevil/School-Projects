@@ -28,7 +28,7 @@ int displayMenu(){
          << "\nEnter Choice Here --> ";
     cin >> choice;
 
-    while(cin.fail() || (choice > 5 || choice < 1)){
+    while(cin.fail() || (choice > 5 || choice < 1)){ //validation loop for menu
         if(cin.fail()){
             cout << "\nPlease enter an Integer! --> ";
         }else{
@@ -52,7 +52,7 @@ int displayMenu(){
 */
 void areaSquare(double side){
     double area = pow(side, 2);
-    cout << "\nThe area of your Square is " << area << endl;
+    cout << "\nThe area of your Square is " << area << endl; 
 } 
 
 /*

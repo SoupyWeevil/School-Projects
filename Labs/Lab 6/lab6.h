@@ -15,7 +15,7 @@
 #include <cmath>
 using namespace std;
 
-const double PI = 3.14159;
+const double PI = 3.14159; //global constant for π
 
 int displayMenu(); // displays menu, allows user choice, RETURNS user choice
 void areaSquare(double);  //calculated area of square based on user input
