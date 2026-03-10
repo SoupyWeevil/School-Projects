@@ -25,7 +25,9 @@ all:		Earthquake
 # Compile the program with required libraries and create executable named earthquake
 # You need to update YOUR/PATH/HERE with your actual file path!
 Earthquake:	Prog3.cpp
-			g++ -Wall -std=c++17 Prog3.cpp -I "YOUR/PATH/HERE/curl-8.6.0_3-win64-mingw/include" -I "YOUR/PATH/HERE/json/include" -lcurl -o earthquake
+			g++ -Wall -std=c++17 Prog3.cpp 
+			-I "/Users/soupy_weevil/Desktop/Personal/School-Projects/Programs/Program 3/curl-8.6.0_3-win64-mingw/include" 
+			-I "/Users/soupy_weevil/Desktop/Personal/School-Projects/Programs/Program 3/json/include" -lcurl -o earthquake
 # Run
 run: 
 			./earthquake

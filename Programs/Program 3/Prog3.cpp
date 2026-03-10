@@ -2,10 +2,10 @@
 	TO COMPILE:	Look at the Makefile (for your operating system)
              	as well as the assignment document
 
-	Title:			Prog3_given.cpp (rename to Prog3.cpp)
-	Author: 		(put your name)
+	Title:			Prog3.cpp
+	Author: 		Grace Brown
 	Date Created: 	(date started on assignment)
-	Last Updated: 	
+	Last Updated: 	9 March 2026
 	Purpose: 		To demonstrate that data can be distributed on remote 
 					computers to be accessed and manipulated from a C++ program.
 
@@ -29,7 +29,7 @@ int main()
 	string jsonString;
 
 	// TO DO: set the url in the line below to the URL of the page with the JSON data you are retrieving
-	jsonString = downloadDataFromURL("https://put.your.url/here");
+	jsonString = downloadDataFromURL("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson");
 	cout << endl;
 	
 	// try-catch is C++ exception handling needed for this program.
@@ -60,7 +60,7 @@ int main()
             // the "mag" key for magnitude and "place" key for location
             // Note that the "properties" dictionary has many other keys, but right now we 
             // are only interested in "mag" and "place" for this part of the program
-            if (// TO DO: copy/paste code from the programming assignment document) 
+            if (element[“properties”][“mag”] >= 4.5) 
 			{
                 cout << "Earthquake " << numGreater 
                      << ": \n\tPlace: " << element["properties"]["place"] 
@@ -130,7 +130,7 @@ static size_t WriteCallback(void* contents, size_t size, size_t nmemb, ostream* 
 	***Don't modify this function. It is correct.***
 *******************************************************************************/
 
-string downloadDataFromURL(const string& "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson")
+string downloadDataFromURL(const string& url)
 {
     CURL* curl;
     CURLcode res;
