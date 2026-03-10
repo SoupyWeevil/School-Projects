@@ -60,7 +60,7 @@ int main()
             // the "mag" key for magnitude and "place" key for location
             // Note that the "properties" dictionary has many other keys, but right now we 
             // are only interested in "mag" and "place" for this part of the program
-            if (element[“properties”][“mag”] >= 4.5) 
+            if (element["properties"]["mag"] >= 4.5) 
 			{
                 cout << "Earthquake " << numGreater 
                      << ": \n\tPlace: " << element["properties"]["place"] 
