@@ -13,9 +13,9 @@
 
 #include <iostream>
 #include <string>
-// TO DO: add the other #includes that you need for this program
-
-
+#include <curl/curl.h>
+#include <nlohmann/json.hpp>
+#include <sstream>
 
 using json = nlohmann::json;
 using namespace std;
@@ -130,7 +130,7 @@ static size_t WriteCallback(void* contents, size_t size, size_t nmemb, ostream* 
 	***Don't modify this function. It is correct.***
 *******************************************************************************/
 
-string downloadDataFromURL(const string& url)
+string downloadDataFromURL(const string& "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson")
 {
     CURL* curl;
     CURLcode res;
