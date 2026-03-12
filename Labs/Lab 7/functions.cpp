@@ -6,3 +6,15 @@
 */
 
 #include "lab7.h"
+
+void printOver10(string dName, string dHeight, string dMass, string dEat, string dDesc){
+
+}
+
+void printSaurus(string dName, string dHeight, string dMass, string dEat, string dDesc){
+    
+}
+
+bool overTenGrand(string){
+    
+}
