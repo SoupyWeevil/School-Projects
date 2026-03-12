@@ -1,5 +1,5 @@
 <table>
-  <tr colspan="4"> LABS </tr>
+  <tr> <th colspan="4"> LABS </th> </tr>
   <tr>
     <th> Assignment </th>
     <th> Due </th>
@@ -75,7 +75,7 @@
 </table>
 
 <table> 
-  <tr colspan="4"> PROGRAMS </tr>
+  <tr> <th colspan="4"> PROGRAMS </th></tr>
   <tr> 
     <th> Assignment </th>
     <th> Due </th>
