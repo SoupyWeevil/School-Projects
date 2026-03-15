@@ -34,7 +34,7 @@
     <th> Lab 5</th>
     <th> March 4 2026 </th>
     <th> COMPLETE </th>
-    <th> </th>
+    <th> 99</th>
   </tr>
    <tr>
     <th> Lab 6</th>
