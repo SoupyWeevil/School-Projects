@@ -4,8 +4,8 @@
 
 	Title:			Prog3.cpp
 	Author: 		Grace Brown
-	Date Created: 	(date started on assignment)
-	Last Updated: 	9 March 2026
+	Date Created: 	6 March 2026
+	Last Updated: 	15 March 2026
 	Purpose: 		To demonstrate that data can be distributed on remote 
 					computers to be accessed and manipulated from a C++ program.
 
