@@ -73,11 +73,18 @@ int main()
                 break;
 		}
 
-        /*
-            TO DO: YOUR FOR LOOP GOES HERE
-            Purpose: using the format given above, make a loop that will print ALL
-                the earthquakes that caused a tsunami
-        */
+       for(unsigned int i = 0; i < features.size(); ++i){ //MY LOOP 
+
+            json element = features[i];
+
+            if (element["properties"]["mag"] >= 2.0){ //checks for ANY earthquake
+                cout << "Earthquake " << numGreater 
+                     << ": \n\tPlace: " << element["properties"]["place"] 
+                     << "\n\tMagnitude: " << element["properties"]["mag"]<< endl;
+                cout << endl;
+                numGreater++;
+            }
+       }
 
     } 
     // The catch statement allows you to define a block of code to be executed if an error occurs in the try block.
