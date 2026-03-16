@@ -1,6 +1,6 @@
 /*
     Name        : Grace Brown
-    Last Updated: 12 March 2026
+    Last Updated: 16 March 2026
     File Name   : functions.cpp
     Purpose     : Defines functions for driver.cpp 
 */
@@ -16,5 +16,5 @@ void printSaurus(string dName, string dHeight, string dMass, string dEat, string
 }
 
 bool overTenGrand(string){
-    
+    return true;
 }
